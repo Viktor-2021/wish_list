@@ -1,0 +1,31 @@
+{% extends "wishes_app/base.html"%}
+{% load static %}
+
+{% block title %}{{i_view.description}}{% endblock %}
+
+{% block content %}
+{% include "wishes_app/navbar.html" %}
+
+    <div class="container mt-4">
+        <div class="row align-center">
+            <div class="col-3"></div>
+            <div class="col-6 mt-4">    
+                <h3>{{i_view.description}}</h3>           
+            </div>
+            
+        </div>
+        <div class="row align-center mt-4">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <div class="col  pb-5">
+                    <p>Users who added this product/item under their wish list:</p>
+                    <div class="card bordered">
+                        {% for i in i_wishers %}
+                            <p class='ms-4 mt-2'>{{i.username}}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
